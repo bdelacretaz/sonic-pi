@@ -24,15 +24,8 @@ jobs:
               title: "Mac",
               os: "macos-latest",
               cc: "clang",
-              arch: "arm64",
+              arch: "x64",
               build_type: "Release",
-            }
-          - {
-              title: "Mac",
-              os: "macos-latest",
-              cc: "clang",
-              arch: "arm64",
-              build_type: "Debug",
             }
 
     steps:
@@ -272,6 +265,13 @@ jobs:
           SONIC_PI_ENV: test
         run: ctest --verbose
         if: matrix.os == 'windows-latest'
+
+      - name: Archive macOS app
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-without-markdown
+          path: './build/**/*.dmg'
+        if: matrix.os == 'macos-latest'
 
       - name: Archive Logs
         uses: actions/upload-artifact@v2
