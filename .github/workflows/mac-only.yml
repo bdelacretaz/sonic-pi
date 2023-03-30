@@ -266,11 +266,11 @@ jobs:
         run: ctest --verbose
         if: matrix.os == 'windows-latest'
 
-      - name: Archive macOS app
+      - name: Archive the build
         uses: actions/upload-artifact@v3
         with:
-          name: dist-without-markdown
-          path: './build/**/*.dmg'
+          name: build
+          path: ${{github.workspace}}/app/build/ 
         if: matrix.os == 'macos-latest'
 
       - name: Archive Logs
