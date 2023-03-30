@@ -3731,6 +3731,74 @@ Disable the rotary speaker by setting `:rs_freq` to 0. Note that while `:rs_freq
       end
     end
 
+    class GrainFM < SonicPiSynth
+      def name
+        "Grain FM"
+      end
+
+      def introduced
+        # TODO
+        Version.new(999,10,0)
+      end
+
+      def synth_name
+        "grainfm"
+      end
+
+      def doc
+        "A granular synth using frequency modulated sine waves"
+      end
+
+      def arg_defaults
+        {
+          :note => 60,
+          #:note_slide => 0,
+          #:note_slide_shape => 1,
+          #:note_slide_curve => 0,
+          #:note_resolution => 0.1,
+          :amp => 1,
+          #:amp_slide => 0,
+          #:amp_slide_shape => 1,
+          #:amp_slide_curve => 0,
+          :pan => 0,
+          #:pan_slide => 0,
+          #:pan_slide_shape => 1,
+          #:pan_slide_curve => 0,
+
+          #:attack => 0,
+          #:decay => 0,
+          #:sustain => 0,
+          #:release => 1,
+          #:attack_level => 1,
+          #:decay_level => :sustain_level,
+          #:sustain_level => 1,
+          #:env_curve => 2,
+
+          #:width => 0
+        }
+      end
+
+      def specific_arg_info
+        {
+          :graindur =>
+          {
+            :doc => "Grain duration",
+            #:validations => [v_one_of(:grain, [0, 1, 2])],
+            :modulatable => true,
+          },
+          # TODO change to release, or use a perc envelope?
+          :envdur =>
+          {
+            :doc => "Envelope duration",
+            #:validations => [v_one_of(:grain, [0, 1, 2])],
+            :modulatable => true,
+          },
+
+          # TODO more specific args
+        }
+      end
+    end
+
     class StudioInfo < SonicPiSynth
       def user_facing?
         false
