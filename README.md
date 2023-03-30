@@ -18,7 +18,7 @@
               /____/\____/_/ /_/_/\___/  /_/   /_/
 
 
-## Code. Music. Live.
+## Code. Music. Live. - trigger grainfm build --
 
 Sonic Pi is a *new kind of musical instrument*. Instead of strumming
 strings or whacking things with sticks - you write code - **live**.
